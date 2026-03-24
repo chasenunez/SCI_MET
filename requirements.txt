@@ -1,0 +1,27 @@
+# ============================================================================
+# DORA Scientometric Dashboard — Requirements
+# ============================================================================
+#
+# RUNTIME (browser-side):
+#   D3.js v7  — loaded via CDN (https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js)
+#   No build step, no Node.js, no bundler required.
+#
+# LOCAL DEVELOPMENT:
+#   Any HTTP server to serve static files. Options:
+#
+#   Python (built-in):
+#     python -m http.server 8000
+#
+#   Node.js (if you have it):
+#     npx serve .
+#
+#   VS Code: use the "Live Server" extension.
+#
+# DATA GENERATION (optional):
+#   Python 3.8+  — only stdlib, no pip packages needed
+#     python generate_data.py
+#
+# ============================================================================
+# Summary: the only hard dependency is a modern browser + D3.js (loaded via CDN).
+# Everything else is optional tooling for development convenience.
+# ============================================================================

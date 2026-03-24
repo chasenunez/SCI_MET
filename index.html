@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DORA-Aligned Scientometric Dashboard</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Google Fonts: Inter for clean scientific typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+  <!-- D3.js v7 — the only external dependency -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+</head>
+<body>
+
+  <!-- ================================================================== -->
+  <!-- Header with search                                                  -->
+  <!-- ================================================================== -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="app-title">Scientometric Dashboard <span>// DORA</span></div>
+
+      <div class="search-bar">
+        <input
+          type="text"
+          id="researcher-input"
+          list="researcher-list"
+          placeholder="Enter researcher name..."
+          autocomplete="off"
+          onkeydown="if(event.key==='Enter') Dashboard.handleSearch()">
+        <datalist id="researcher-list"></datalist>
+        <button onclick="Dashboard.handleSearch()">Search</button>
+      </div>
+
+      <div id="quick-select"></div>
+    </div>
+  </header>
+
+  <!-- ================================================================== -->
+  <!-- Dashboard content (populated by dashboard.js)                       -->
+  <!-- ================================================================== -->
+  <main id="dashboard-content">
+    <!-- Landing page or researcher dashboard renders here -->
+  </main>
+
+  <!-- ================================================================== -->
+  <!-- Scripts — order matters: utils first, then modules, then dashboard  -->
+  <!-- ================================================================== -->
+  <script src="js/utils.js"></script>
+
+  <!-- Visualization modules (each self-contained, depends only on Utils) -->
+  <script src="js/modules/timeline.js"></script>
+  <script src="js/modules/citationDist.js"></script>
+  <script src="js/modules/outputDiversity.js"></script>
+  <script src="js/modules/collaboration.js"></script>
+  <script src="js/modules/impactRadar.js"></script>
+  <script src="js/modules/altmetrics.js"></script>
+  <script src="js/modules/openAccess.js"></script>
+  <script src="js/modules/topicStream.js"></script>
+  <script src="js/modules/fwciTimeline.js"></script>
+
+  <!-- Main orchestrator (depends on all modules) -->
+  <script src="js/dashboard.js"></script>
+
+</body>
+</html>
