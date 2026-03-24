@@ -1,14 +1,14 @@
-# Scientometric Dashboard // DORA
+# DORA Compliant Scientometric Dashboard
 
-A browser-based, interactive dashboard for visualizing researcher output profiles using principles from the **San Francisco Declaration on Research Assessment (DORA)**.
+A browser-based, interactive dashboard for visualizing researcher output profiles using principles from the **[Declaration on Research Assessment (DORA)](https://sfdora.org/)**.
 
-Instead of reducing a career to a single number (h-index, Impact Factor), this dashboard shows the full picture: what types of work a researcher produces, how citations actually distribute across their outputs, who they collaborate with, and where their work gets attention beyond academia.
+Instead of reducing a career to a single number (h-index, Impact Factor), this dashboard shows a somewhat more holistic picture: what types of work a researcher produces, how citations actually distribute across their outputs, who they collaborate with, and where their work gets attention beyond academia. It is, perhaps, less "qualitative" than would be desired by DORA/CoARA [(Coalition for Advancing Research Assessment)](https://www.coara.org/), but qualitative data are somewhat less amenable to dashboard metrics. 
 
 ## Why DORA?
 
-The [DORA declaration](https://sfdora.org) argues that journal-based metrics like Impact Factor are poor proxies for individual research quality. Citation distributions are skewed, field norms vary wildly, and datasets/software/preprints are real research outputs that deserve recognition. This dashboard was built with those principles baked in — every visualization carries a DORA context note explaining what it shows and what it deliberately avoids.
+The DORA declaration argues that journal-based metrics like Impact Factor are poor proxies for individual research quality. Citation distributions are skewed, field norms vary wildly, and datasets/software/preprints are real research outputs that deserve recognition. This dashboard was built with those principles baked in — every visualization carries a DORA context note explaining what it shows and what it deliberately avoids.
 
-Key principles we follow:
+Key principles this took observes:
 
 - **No Journal Impact Factor** as a quality surrogate (DORA Rec. #1)
 - **Article-level metrics** that show the full distribution, not just averages
@@ -19,10 +19,10 @@ Key principles we follow:
 
 ## Visualizations
 
-The dashboard includes 9 D3.js visualization modules:
+The dashboard includes 9 visualization modules (coded up in D3.js):
 
 1. **Publication Timeline** — Stacked bar chart of output types per year
-2. **Citation Distribution** — Jittered strip plot showing every individual output's citations (the skew is the point)
+2. **Citation Distribution** — Jittered strip plot showing every individual output's citations
 3. **Output Diversity** — Donut chart breaking down the portfolio by type
 4. **Collaboration Network** — Force-directed graph of co-author relationships
 5. **Impact Radar** — Spider chart across 6 dimensions of impact
@@ -44,8 +44,6 @@ python -m http.server 8000
 
 # 4. Open http://localhost:8000 in your browser
 ```
-
-That's it. No `npm install`, no build step, no webpack config to debug at 2am.
 
 ## Project Structure
 
@@ -116,16 +114,16 @@ You can adapt `generate_data.py` to pull from real APIs (OpenAlex, Semantic Scho
 - **SciEvo**: [github.com/Ahren09/SciEvo](https://github.com/Ahren09/SciEvo) — longitudinal scientometric dataset that inspired our data model
 - **D3.js Gallery**: [observablehq.com/@d3/gallery](https://observablehq.com/@d3/gallery) — the visualization techniques (stacked bars, force graphs, streamgraphs, radar charts) all trace back here
 - **Scientometric Visualization**: [Springer article on scientometric viz](https://link.springer.com/article/10.1007/s44230-025-00089-3) — survey of visualization approaches for bibliometric data
-- **Wong (2011)**: "Points of view: Color blindness" — Nature Methods. Our color palette.
+- **Wong (2011)**: "Points of view: Color blindness" — Nature Methods.
 - **Altmetrics**: [altmetrics.org](https://altmetrics.org) — manifesto for alternative scholarly metrics
 
 ## Design Decisions
 
-- **Vanilla JS + D3 only**: no React, no Vue, no build tools. The goal is a dashboard anyone can fork, modify, and deploy to GitHub Pages in under 5 minutes.
+- **Vanilla JS + D3 only**: The goal is a dashboard anyone can fork, modify, and deploy to GitHub Pages in under 5 minutes.
 - **IIFE modules**: each visualization is a self-contained IIFE that exposes a single `render(publications)` function. Swap one out, and nothing else breaks.
 - **Shared `Utils`**: all SVG scaffolding, tooltips, legends, and color scales live in one place. Change a color palette once, and it propagates everywhere.
 - **Responsive SVGs**: every chart uses `viewBox` for responsive scaling. No fixed pixel sizes.
-- **DORA notes**: every chart has a contextual note explaining why it exists and which DORA recommendation it addresses. The dashboard is educational, not just decorative.
+- **DORA notes**: every chart has a contextual note explaining why it exists and which DORA recommendation it addresses.
 
 ## License
 
