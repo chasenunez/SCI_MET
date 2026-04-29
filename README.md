@@ -4,6 +4,8 @@ A browser-based, interactive dashboard for visualizing researcher output profile
 
 Instead of reducing a career to a single number (h-index, Impact Factor), this dashboard shows a somewhat more holistic picture: what types of work a researcher produces, how citations actually distribute across their outputs, who they collaborate with, and where their work gets attention beyond academia. It is, perhaps, less "qualitative" than would be desired by DORA/CoARA [(Coalition for Advancing Research Assessment)](https://www.coara.org/), but qualitative data are somewhat less amenable to dashboard metrics. 
 
+![SCIMET_description](assets/overview.png)
+
 ## Why DORA?
 
 The DORA declaration argues that journal-based metrics like Impact Factor are poor proxies for individual research quality. Citation distributions are skewed, field norms vary wildly, and datasets/software/preprints are real research outputs that deserve recognition. This dashboard was built with those principles baked in — every visualization carries a DORA context note explaining what it shows and what it deliberately avoids.
